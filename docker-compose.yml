@@ -1,0 +1,14 @@
+version: "2"
+services:
+  sackson-server:
+    build: ./sackson-server
+    ports:
+     - "8001:8001"
+    #volumes:
+     #- ./sackson-server/config:/config
+  acquire-frontend:
+    build: ./acquire-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - sackson-server
